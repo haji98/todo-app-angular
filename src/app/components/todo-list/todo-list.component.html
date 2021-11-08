@@ -1,0 +1,13 @@
+<h1>{{ title}}</h1>
+<input type="text" placeholder="Enter New Task" #task (keyup.enter)="addTask(task.value); ; task.value=''">
+<br>
+<br>
+<button (click)="addTask(task.value); task.value=''">
+    Add New Task</button>
+
+<br>
+<br>
+<ul *ngFor="let item of list">
+    <li (click)="doneTask(item.id)">{{item.name}} {{item.completed == true ? "(Completed)" : ""}}<button
+            (click)="removeTask(item.id)">Remove</button></li>
+</ul>
